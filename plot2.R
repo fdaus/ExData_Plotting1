@@ -1,3 +1,4 @@
+#plot2
 
 url =  "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip";
 download.file(url, destfile = "exdata.zip")
@@ -15,8 +16,9 @@ xdata <- cbind(Date,subset(exdata,select = Time:Sub_metering_3))
 finalData<- subset(xdata, Date >= "2007-02-01"&Date < "2007-02-03")
 finalData$Global_active_power <- as.numeric(as.character(finalData$Global_active_power))
 
-#1st graph
+#2nd graph
 
-png("plot1.png",height = 480, width = 480)
-hist(finalData$Global_active_power,col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
-dev.off()
+png("plot2.png",width = 480, height = 480)
+plot(x=finalData$Date,y = finalData$Global_active_power,type="l",ylab = "Global Active Power (kilowatts)" , xlab = "")
+dev.off() 
+
